@@ -51,7 +51,6 @@ fun HomeScreen(
     selectedCategory: Category?,
     onCategorySelect: (Category?) -> Unit,
     onToolClick: (AITool) -> Unit,
-    onToggleFavorite: (AITool) -> Unit,
     isFavorite: (AITool) -> Boolean,
     modifier: Modifier = Modifier
 ) {
@@ -114,7 +113,6 @@ fun HomeScreen(
                 AIToolCard(
                     tool = tool,
                     isFavorite = isFavorite(tool),
-                    onToggleFavorite = onToggleFavorite,
                     onClick = { onToolClick(tool) }
                 )
                 if (index < filteredTools.size - 1) {
@@ -159,7 +157,6 @@ fun AIToolCard(
     tool: AITool,
     isFavorite: Boolean,
     modifier: Modifier = Modifier,
-    onToggleFavorite: (AITool) -> Unit,
     onClick: () -> Unit = {}
 ) {
     Card(
@@ -186,11 +183,11 @@ fun AIToolCard(
                     style = MaterialTheme.typography.titleMedium,
                     fontWeight = FontWeight.Bold
                 )
-                Icon(
-                    painter = painterResource(id = tool.category.iconRes),
-                    contentDescription = stringResource(id = tool.category.displayNameRes),
-                    modifier = Modifier.size(20.dp)
-                )
+//                Icon(
+//                    painter = painterResource(id = tool.category.iconRes),
+//                    contentDescription = stringResource(id = tool.category.displayNameRes),
+//                    modifier = Modifier.size(20.dp)
+//                )
             }
 
             Text(
@@ -207,34 +204,6 @@ fun AIToolCard(
                     .padding(top = 8.dp)
                     .fillMaxWidth()
             )
-            
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.End
-            ) {
-                IconButton(
-                    onClick = { onToggleFavorite(tool) }
-                ) {
-                    Icon(
-                        painter = if (isFavorite) {
-                            painterResource(id = R.drawable.ic_favorite)
-                        } else {
-                            painterResource(id = R.drawable.ic_favorite_outline)
-                        },
-                        contentDescription = if (isFavorite) {
-                            stringResource(R.string.remove_from_favorite)
-                        } else {
-                            stringResource(R.string.add_to_favorite)
-                        },
-                        tint = if (isFavorite) {
-                            MaterialTheme.colorScheme.error
-                        } else {
-                            MaterialTheme.colorScheme.onSurface.copy(alpha = 0.5f)
-                        },
-                        modifier = Modifier.size(24.dp)
-                    )
-                }
-            }
         }
     }
 }
@@ -261,17 +230,12 @@ fun ToolDetailsDialog(
                     .padding(16.dp)
                     .verticalScroll(rememberScrollState())
             ) {
-                // Header with icon and favorite button
+                // Header with favorite button
                 Row(
                     modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.SpaceBetween,
+                    horizontalArrangement = Arrangement.End,
                     verticalAlignment = Alignment.CenterVertically
                 ) {
-                    Icon(
-                        painter = painterResource(id = tool.category.iconRes),
-                        contentDescription = stringResource(id = tool.category.displayNameRes),
-                        modifier = Modifier.size(32.dp)
-                    )
                     IconButton(onClick = { onToggleFavorite(tool) }) {
                         Icon(
                             painter = if (isFavorite) {

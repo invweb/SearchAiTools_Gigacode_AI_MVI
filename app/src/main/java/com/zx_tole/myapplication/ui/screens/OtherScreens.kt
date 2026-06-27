@@ -28,7 +28,6 @@ import com.zx_tole.myapplication.model.Category
 @Composable
 fun FavoritesScreen(
     onToolClick: (AITool) -> Unit,
-    onToggleFavorite: (AITool) -> Unit,
     isFavorite: (AITool) -> Boolean,
     modifier: Modifier = Modifier
 ) {
@@ -73,7 +72,6 @@ fun FavoritesScreen(
                     AIToolCard(
                         tool = tool,
                         isFavorite = isFavorite(tool),
-                        onToggleFavorite = { onToggleFavorite(tool) },
                         onClick = { onToolClick(tool) }
                     )
                 }
