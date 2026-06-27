@@ -3,13 +3,64 @@
     android:height="128dp"
     android:viewportWidth="960"
     android:viewportHeight="960">
+    <!-- Основной нейрон (центральный узел) -->
     <path
         android:fillColor="#6750A4"
-        android:pathData="M480,800L160,480L480,160L800,480L480,800ZM480,720L720,480L480,240L240,480L480,720ZM480,640L560,560L480,480L400,560L480,640Z" />
+        android:pathData="M480,480m-80,0a80,80 0,1 1,160 0a80,80 0,1 1,-160 0" />
+    
+    <!-- Дуги нейронной связи 1 -->
     <path
         android:fillColor="#9334E6"
-        android:pathData="M480,400L400,320L320,400L400,480L480,400Z" />
+        android:pathData="M480,480 L320,320 L240,360 L480,480 Z" />
+    <path
+        android:fillColor="#9334E6"
+        android:pathData="M480,480 L640,320 L720,360 L480,480 Z" />
+    <path
+        android:fillColor="#9334E6"
+        android:pathData="M480,480 L320,640 L240,600 L480,480 Z" />
+    <path
+        android:fillColor="#9334E6"
+        android:pathData="M480,480 L640,640 L720,600 L480,480 Z" />
+    
+    <!-- Внешние нейроны -->
     <path
         android:fillColor="#E9D5FF"
-        android:pathData="M560,560L640,480L560,400L480,480L560,560Z" />
+        android:pathData="M240,360m-30,0a30,30 0,1 1,60 0a30,30 0,1 1,-60 0" />
+    <path
+        android:fillColor="#E9D5FF"
+        android:pathData="M720,360m-30,0a30,30 0,1 1,60 0a30,30 0,1 1,-60 0" />
+    <path
+        android:fillColor="#E9D5FF"
+        android:pathData="M240,600m-30,0a30,30 0,1 1,60 0a30,30 0,1 1,-60 0" />
+    <path
+        android:fillColor="#E9D5FF"
+        android:pathData="M720,600m-30,0a30,30 0,1 1,60 0a30,30 0,1 1,-60 0" />
+    
+    <!-- Дополнительные связи для динамики -->
+    <path
+        android:fillColor="#7C4DFF"
+        android:pathData="M480,480 L480,200 L520,240 L480,480 Z" />
+    <path
+        android:fillColor="#7C4DFF"
+        android:pathData="M480,480 L480,760 L520,720 L480,480 Z" />
+    <path
+        android:fillColor="#7C4DFF"
+        android:pathData="M480,480 L200,480 L240,440 L480,480 Z" />
+    <path
+        android:fillColor="#7C4DFF"
+        android:pathData="M480,480 L760,480 L720,440 L480,480 Z" />
+    
+    <!-- Дальнее поле нейронов -->
+    <path
+        android:fillColor="#B388FF"
+        android:pathData="M480,200m-25,0a25,25 0,1 1,50 0a25,25 0,1 1,-50 0" />
+    <path
+        android:fillColor="#B388FF"
+        android:pathData="M480,760m-25,0a25,25 0,1 1,50 0a25,25 0,1 1,-50 0" />
+    <path
+        android:fillColor="#B388FF"
+        android:pathData="M200,480m-25,0a25,25 0,1 1,50 0a25,25 0,1 1,-50 0" />
+    <path
+        android:fillColor="#B388FF"
+        android:pathData="M760,480m-25,0a25,25 0,1 1,50 0a25,25 0,1 1,-50 0" />
 </vector>
